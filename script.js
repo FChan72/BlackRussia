@@ -1,3 +1,4 @@
+// Конфигурация персонажей - легко добавлять новых
 const heroes = {
     'fork-chan': {
         name: 'Fork_Chan',
@@ -6,6 +7,7 @@ const heroes = {
         status: 'Бомж',
         profession: 'Дальнобойщик',
         service: 'ФСБ (старшина)',
+        category: 'main', // Категория персонажа
         basicInfo: [
             { label: 'Никнейм', value: 'Fork_Chan' },
             { label: 'Уровень', value: '12' },
@@ -33,6 +35,8 @@ const heroes = {
         status: 'Подполковник',
         profession: 'Армия',
         service: 'Армия',
+        category: 'family', // Семья
+        relation: 'Дядя',
         basicInfo: [
             { label: 'Имя', value: 'Вадим' },
             { label: 'Звание', value: 'Подполковник' },
@@ -60,6 +64,8 @@ const heroes = {
         status: 'Майор',
         profession: 'Армия',
         service: 'Армия',
+        category: 'family',
+        relation: 'Дядя',
         basicInfo: [
             { label: 'Имя', value: 'Тима' },
             { label: 'Звание', value: 'Майор' },
@@ -87,6 +93,8 @@ const heroes = {
         status: 'Семейный',
         profession: 'Не указана',
         service: 'Нет',
+        category: 'family',
+        relation: 'Дядя',
         basicInfo: [
             { label: 'Имя', value: 'Неизвестно' },
             { label: 'Статус', value: 'Семейный' },
@@ -114,6 +122,8 @@ const heroes = {
         status: 'Прапорщик',
         profession: 'ФСБ',
         service: 'ФСБ',
+        category: 'family',
+        relation: 'Тетя',
         basicInfo: [
             { label: 'Имя', value: 'Аня' },
             { label: 'Звание', value: 'Прапорщик' },
@@ -141,6 +151,8 @@ const heroes = {
         status: 'Майор',
         profession: 'Армия',
         service: 'Армия',
+        category: 'family',
+        relation: 'Мама',
         basicInfo: [
             { label: 'Имя', value: 'Мира' },
             { label: 'Звание', value: 'Майор' },
@@ -168,6 +180,8 @@ const heroes = {
         status: 'Подполковник',
         profession: 'УМВД',
         service: 'УМВД',
+        category: 'family',
+        relation: 'Папа',
         basicInfo: [
             { label: 'Имя', value: 'Ярик' },
             { label: 'Звание', value: 'Подполковник' },
@@ -195,6 +209,8 @@ const heroes = {
         status: 'Майор',
         profession: 'Армия',
         service: 'Армия',
+        category: 'family',
+        relation: 'Крестная',
         basicInfo: [
             { label: 'Имя', value: 'Камилла' },
             { label: 'Звание', value: 'Майор' },
@@ -222,6 +238,8 @@ const heroes = {
         status: 'Капитан',
         profession: 'Армия',
         service: 'Армия',
+        category: 'family',
+        relation: 'Блятик',
         basicInfo: [
             { label: 'Имя', value: 'Рональдо' },
             { label: 'Звание', value: 'Капитан' },
@@ -249,6 +267,8 @@ const heroes = {
         status: 'Подполковник',
         profession: 'Армия',
         service: 'Армия',
+        category: 'family',
+        relation: 'Блятик',
         basicInfo: [
             { label: 'Имя', value: 'Арсений' },
             { label: 'Звание', value: 'Подполковник' },
@@ -269,6 +289,35 @@ const heroes = {
             { label: 'Приоритет', value: 'Служба' }
         ]
     },
+    'asxab': {
+        name: 'Дед Асхаб',
+        avatar: 'https://via.placeholder.com/150/000/fff?text=Асхаб',
+        level: 'Высокий',
+        status: 'Неизвестно',
+        profession: 'Неизвестно',
+        service: 'Армия',
+        category: 'family',
+        relation: 'Дед',
+        basicInfo: [
+            { label: 'Имя', value: 'Асхаб' },
+            { label: 'Звание', value: 'Неизвестно' },
+            { label: 'Родство', value: 'Дед' },
+            { label: 'Служба', value: 'Неизвестно' },
+            { label: 'Родня', value: 'Неизвестно' }
+        ],
+        careerInfo: [
+            { label: 'Служба', value: 'Неизвестно' },
+            { label: 'Звание', value: 'Неизвестно' },
+            { label: 'Статус', value: 'Неизвестно' },
+            { label: 'Опыт', value: 'Военная служба' }
+        ],
+        traits: [
+            { label: 'Дисциплина', value: 'Высокая' },
+            { label: 'Подход', value: 'Неизвестно' },
+            { label: 'Цели', value: 'Неизвестно' },
+            { label: 'Приоритет', value: 'Неизвестно' }
+        ]
+    },
     'andrey': {
         name: 'Андрей',
         avatar: 'https://via.placeholder.com/150/000/fff?text=Андрей',
@@ -276,6 +325,8 @@ const heroes = {
         status: 'Полковник',
         profession: 'Военный',
         service: 'Армия',
+        category: 'other', // Другие персонажи
+        relation: 'Коллега',
         basicInfo: [
             { label: 'Имя', value: 'Андрей' },
             { label: 'Звание', value: 'Полковник' },
@@ -300,6 +351,8 @@ const heroes = {
 
 // Текущий активный персонаж
 let currentHero = 'fork-chan';
+let autoSwitchInterval = null;
+let isAutoMode = false;
 
 // Функция переключения персонажа
 function switchHero(heroId) {
@@ -307,6 +360,9 @@ function switchHero(heroId) {
     
     const hero = heroes[heroId];
     currentHero = heroId;
+    
+    // Прокручиваем вверх (только если не авторежим)
+    scrollToTop();
     
     // Анимация перехода - затемняем страницу
     const overlay = document.createElement('div');
@@ -370,6 +426,642 @@ function switchHero(heroId) {
         }, 200);
         
     }, 300);
+}
+
+// Функция автоматического переключения персонажей
+function startAutoSwitch() {
+    if (isAutoMode) return;
+    
+    isAutoMode = true;
+    const heroIds = Object.keys(heroes);
+    let currentIndex = heroIds.indexOf(currentHero);
+    
+    // Добавляем эффект авторежима к body
+    document.body.classList.add('auto-mode');
+    
+    autoSwitchInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % heroIds.length;
+        switchHero(heroIds[currentIndex]);
+        
+        // Добавляем эффект перехода
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.animation = 'heroTransition 0.5s ease-in-out';
+            setTimeout(() => {
+                hero.style.animation = '';
+            }, 500);
+        }
+    }, 5000); // Переключаем каждые 5 секунд
+    
+    // Обновляем кнопку
+    updateAutoButton();
+}
+
+// Функция остановки автоматического переключения
+function stopAutoSwitch() {
+    if (!isAutoMode) return;
+    
+    isAutoMode = false;
+    if (autoSwitchInterval) {
+        clearInterval(autoSwitchInterval);
+        autoSwitchInterval = null;
+    }
+    
+    // Убираем эффект авторежима
+    document.body.classList.remove('auto-mode');
+    
+    // Обновляем кнопку
+    updateAutoButton();
+}
+
+// Функция обновления кнопки авторежима
+function updateAutoButton() {
+    const autoButton = document.getElementById('auto-switch-btn');
+    const progressBar = document.getElementById('auto-progress');
+    
+    if (autoButton) {
+        if (isAutoMode) {
+            autoButton.textContent = 'Остановить авто';
+            autoButton.classList.add('active');
+            if (progressBar) {
+                progressBar.classList.add('active');
+            }
+        } else {
+            autoButton.textContent = 'Авторежим';
+            autoButton.classList.remove('active');
+            if (progressBar) {
+                progressBar.classList.remove('active');
+            }
+        }
+    }
+}
+
+// Функция переключения авторежима
+function toggleAutoMode() {
+    if (isAutoMode) {
+        stopAutoSwitch();
+    } else {
+        startAutoSwitch();
+    }
+}
+
+// Функция для легкого добавления нового персонажа
+function addNewHero(heroId, heroData) {
+    if (heroes[heroId]) {
+        console.warn(`Персонаж с ID "${heroId}" уже существует!`);
+        return false;
+    }
+    
+    // Проверяем обязательные поля
+    const requiredFields = ['name', 'avatar', 'level', 'status', 'profession', 'service', 'category'];
+    for (const field of requiredFields) {
+        if (!heroData[field]) {
+            console.error(`Отсутствует обязательное поле: ${field}`);
+            return false;
+        }
+    }
+    
+    // Добавляем персонажа
+    heroes[heroId] = heroData;
+    
+    // Сохраняем в localStorage
+    saveHeroes();
+    
+    // Автоматически добавляем карточку в HTML если страница загружена
+    if (document.readyState === 'complete') {
+        addHeroCardToDOM(heroId, heroData);
+    }
+    
+    console.log(`Персонаж "${heroData.name}" успешно добавлен!`);
+    return true;
+}
+
+// Функция для добавления карточки персонажа в DOM
+function addHeroCardToDOM(heroId, heroData) {
+    const container = getHeroContainer(heroData.category);
+    if (!container) {
+        console.error(`Контейнер для категории "${heroData.category}" не найден`);
+        return;
+    }
+    
+    const cardHTML = createHeroCardHTML(heroId, heroData);
+    container.insertAdjacentHTML('beforeend', cardHTML);
+    
+    // Добавляем обработчик клика
+    const newCard = container.querySelector(`[data-hero="${heroId}"]`);
+    if (newCard) {
+        newCard.addEventListener('click', function() {
+            if (isAutoMode) {
+                stopAutoSwitch();
+            }
+            switchHero(heroId);
+        });
+    }
+}
+
+// Функция для получения контейнера по категории
+function getHeroContainer(category) {
+    switch (category) {
+        case 'family':
+            return document.querySelector('.family-tree');
+        case 'other':
+            return document.querySelector('.contacts-grid');
+        default:
+            return null;
+    }
+}
+
+// Функция для создания HTML карточки персонажа
+function createHeroCardHTML(heroId, heroData) {
+    const deleteButton = heroId !== 'fork-chan' ? `<button class="delete-hero-btn-small" onclick="deleteHeroDirectly('${heroId}')" title="Удалить персонажа">🗑️</button>` : '';
+    
+    if (heroData.category === 'family') {
+        return `
+            <div class="family-member">
+                <div class="member-card clickable-hero" data-hero="${heroId}">
+                    <div class="card-header">
+                        <h3>${heroData.name}</h3>
+                        ${deleteButton}
+                    </div>
+                    <p>${heroData.profession}</p>
+                    <span class="relation">${heroData.relation || 'Родственник'}</span>
+                </div>
+            </div>
+        `;
+    } else {
+        return `
+            <div class="contact-card clickable-hero" data-hero="${heroId}">
+                <div class="card-header">
+                    <h3>${heroData.name}</h3>
+                    ${deleteButton}
+                </div>
+                <p>${heroData.profession}</p>
+                <span class="status ${heroData.status === 'Злюка' ? 'bad' : 'neutral'}">${heroData.status}</span>
+            </div>
+        `;
+    }
+}
+
+// Функция для удаления персонажа
+function removeHero(heroId) {
+    if (!heroes[heroId]) {
+        console.warn(`Персонаж с ID "${heroId}" не найден!`);
+        return false;
+    }
+    
+    // Удаляем из объекта
+    delete heroes[heroId];
+    
+    // Сохраняем в localStorage
+    saveHeroes();
+    
+    // Удаляем карточку из DOM
+    const card = document.querySelector(`[data-hero="${heroId}"]`);
+    if (card) {
+        card.closest('.family-member, .contact-card').remove();
+    }
+    
+    console.log(`Персонаж "${heroId}" успешно удален!`);
+    return true;
+}
+
+// Функция для получения всех персонажей по категории
+function getHeroesByCategory(category) {
+    return Object.entries(heroes).filter(([id, hero]) => hero.category === category);
+}
+
+// Функция для прокрутки вверх страницы
+function scrollToTop() {
+    if (!isAutoMode) {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Функция прямого удаления персонажа (для кнопок в карточках)
+function deleteHeroDirectly(heroId) {
+    if (!hasAdminRights()) {
+        alert('Требуются права администратора!');
+        return;
+    }
+    
+    if (heroId === 'fork-chan') {
+        alert('Нельзя удалить главного персонажа!');
+        return;
+    }
+    
+    const heroName = heroes[heroId]?.name || heroId;
+    const confirmDelete = confirm(`Вы уверены, что хотите удалить персонажа "${heroName}"?`);
+    
+    if (confirmDelete) {
+        if (removeHero(heroId)) {
+            alert(`Персонаж "${heroName}" успешно удален!`);
+        } else {
+            alert('Ошибка при удалении персонажа.');
+        }
+    }
+}
+
+// Система авторизации администратора
+let isAdmin = false;
+const ADMIN_CODE = '123'; // Код для получения прав администратора
+
+// Система сохранения данных
+const STORAGE_KEY = 'blackrussia_heroes';
+const ADMIN_STORAGE_KEY = 'blackrussia_admin';
+const USER_COUNTER_KEY = 'blackrussia_online_users';
+
+// Система счетчика пользователей
+let onlineUsers = 0;
+let userSessionId = null;
+
+// Загрузка данных при инициализации
+function loadSavedData() {
+    // Загружаем сохраненных персонажей
+    const savedHeroes = localStorage.getItem(STORAGE_KEY);
+    if (savedHeroes) {
+        const parsedHeroes = JSON.parse(savedHeroes);
+        Object.assign(heroes, parsedHeroes);
+    }
+    
+    // Загружаем статус администратора из sessionStorage (сбрасывается при закрытии браузера)
+    const savedAdmin = sessionStorage.getItem(ADMIN_STORAGE_KEY);
+    if (savedAdmin === 'true') {
+        isAdmin = true;
+    } else {
+        isAdmin = false;
+    }
+}
+
+// Сохранение данных
+function saveHeroes() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(heroes));
+}
+
+function saveAdminStatus() {
+    // Сохраняем статус администратора в sessionStorage (сбрасывается при закрытии браузера)
+    sessionStorage.setItem(ADMIN_STORAGE_KEY, isAdmin.toString());
+}
+
+// Функции для счетчика пользователей
+function generateSessionId() {
+    return 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+}
+
+function updateUserCounter() {
+    const counterElement = document.getElementById('online-users');
+    if (counterElement) {
+        counterElement.textContent = onlineUsers;
+    }
+}
+
+function addUserToCounter() {
+    userSessionId = generateSessionId();
+    const currentUsers = JSON.parse(localStorage.getItem(USER_COUNTER_KEY) || '{}');
+    currentUsers[userSessionId] = Date.now();
+    localStorage.setItem(USER_COUNTER_KEY, JSON.stringify(currentUsers));
+    
+    // Очищаем старые сессии (старше 5 минут)
+    const now = Date.now();
+    const fiveMinutes = 5 * 60 * 1000;
+    Object.keys(currentUsers).forEach(sessionId => {
+        if (now - currentUsers[sessionId] > fiveMinutes) {
+            delete currentUsers[sessionId];
+        }
+    });
+    
+    onlineUsers = Object.keys(currentUsers).length;
+    updateUserCounter();
+}
+
+function removeUserFromCounter() {
+    if (userSessionId) {
+        const currentUsers = JSON.parse(localStorage.getItem(USER_COUNTER_KEY) || '{}');
+        delete currentUsers[userSessionId];
+        localStorage.setItem(USER_COUNTER_KEY, JSON.stringify(currentUsers));
+        onlineUsers = Object.keys(currentUsers).length;
+        updateUserCounter();
+    }
+}
+
+function refreshUserCounter() {
+    const currentUsers = JSON.parse(localStorage.getItem(USER_COUNTER_KEY) || '{}');
+    const now = Date.now();
+    const fiveMinutes = 5 * 60 * 1000;
+    
+    // Очищаем старые сессии
+    Object.keys(currentUsers).forEach(sessionId => {
+        if (now - currentUsers[sessionId] > fiveMinutes) {
+            delete currentUsers[sessionId];
+        }
+    });
+    
+    localStorage.setItem(USER_COUNTER_KEY, JSON.stringify(currentUsers));
+    onlineUsers = Object.keys(currentUsers).length;
+    updateUserCounter();
+}
+
+// Функция проверки прав администратора
+function checkAdminRights() {
+    if (!isAdmin) {
+        const userCode = prompt('Введите код администратора для добавления персонажей:');
+        if (userCode === ADMIN_CODE) {
+            isAdmin = true;
+            saveAdminStatus();
+            alert('Доступ получен! Теперь вы можете добавлять персонажей.');
+            updateAdminButton();
+            return true;
+        } else if (userCode !== null) {
+            alert('Неверный код! Попробуйте еще раз.');
+        }
+        return false;
+    }
+    return true;
+}
+
+// Функция для проверки прав администратора без запроса кода
+function hasAdminRights() {
+    return isAdmin;
+}
+
+// Функция обновления кнопки администратора
+function updateAdminButton() {
+    const addHeroBtn = document.getElementById('add-hero-btn');
+    
+    if (addHeroBtn) {
+        if (isAdmin) {
+            addHeroBtn.textContent = '+ Добавить персонажа';
+            addHeroBtn.classList.add('admin-active');
+            addHeroBtn.title = 'Добавить нового персонажа';
+        } else {
+            addHeroBtn.textContent = '🔒 Получить админку';
+            addHeroBtn.classList.remove('admin-active');
+            addHeroBtn.title = 'Введите код администратора';
+        }
+    }
+    
+    // Показываем/скрываем кнопки удаления в карточках
+    const deleteButtons = document.querySelectorAll('.delete-hero-btn-small');
+    deleteButtons.forEach(btn => {
+        if (isAdmin) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
+}
+
+// Функция показа формы добавления персонажа (только для админов)
+function showAddHeroForm() {
+    if (!checkAdminRights()) {
+        return;
+    }
+    
+    const formHTML = `
+        <div id="add-hero-modal" class="modal-overlay">
+            <div class="modal-content">
+                <h3>Добавить нового персонажа</h3>
+                <form id="add-hero-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>ID персонажа:</label>
+                            <input type="text" id="hero-id" required placeholder="например: uncle-pavel">
+                        </div>
+                        <div class="form-group">
+                            <label>Имя:</label>
+                            <input type="text" id="hero-name" required placeholder="например: Дядя Павел">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Категория:</label>
+                            <select id="hero-category" required>
+                                <option value="family">Семья</option>
+                                <option value="other">Другие персонажи</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Родство/Статус:</label>
+                            <input type="text" id="hero-relation" required placeholder="например: Дядя или Коллега">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Профессия:</label>
+                            <input type="text" id="hero-profession" required placeholder="например: Армия">
+                        </div>
+                        <div class="form-group">
+                            <label>Звание:</label>
+                            <input type="text" id="hero-status" required placeholder="например: Майор">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Служба:</label>
+                            <input type="text" id="hero-service" required placeholder="например: Армия">
+                        </div>
+                        <div class="form-group">
+                            <label>Уровень:</label>
+                            <select id="hero-level" required>
+                                <option value="Низкий">Низкий</option>
+                                <option value="Средний">Средний</option>
+                                <option value="Высокий" selected>Высокий</option>
+                                <option value="Элитный">Элитный</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>URL аватара:</label>
+                        <input type="url" id="hero-avatar" placeholder="https://example.com/avatar.jpg">
+                        <small>Оставьте пустым для автоматической генерации</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Описание персонажа:</label>
+                        <textarea id="hero-description" rows="3" placeholder="Краткое описание персонажа..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Дополнительная информация:</label>
+                        <textarea id="hero-extra-info" rows="2" placeholder="Дополнительные детали..."></textarea>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">Добавить персонажа</button>
+                        <button type="button" class="btn-secondary" onclick="closeAddHeroForm()">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', formHTML);
+    
+    // Обработчик отправки формы
+    document.getElementById('add-hero-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const heroId = document.getElementById('hero-id').value;
+        const heroName = document.getElementById('hero-name').value;
+        const category = document.getElementById('hero-category').value;
+        const relation = document.getElementById('hero-relation').value;
+        const profession = document.getElementById('hero-profession').value;
+        const status = document.getElementById('hero-status').value;
+        const service = document.getElementById('hero-service').value;
+        const level = document.getElementById('hero-level').value;
+        const avatar = document.getElementById('hero-avatar').value;
+        const description = document.getElementById('hero-description').value;
+        const extraInfo = document.getElementById('hero-extra-info').value;
+        
+        // Генерируем аватар если не указан
+        const avatarUrl = avatar || `https://via.placeholder.com/150/000/fff?text=${encodeURIComponent(heroName.split(' ')[0])}`;
+        
+        const heroData = {
+            name: heroName,
+            avatar: avatarUrl,
+            level: level,
+            status: status,
+            profession: profession,
+            service: service,
+            category: category,
+            relation: relation,
+            description: description,
+            extraInfo: extraInfo,
+            basicInfo: [
+                { label: 'Имя', value: heroName.split(' ')[0] },
+                { label: 'Звание', value: status },
+                { label: 'Родство', value: relation },
+                { label: 'Служба', value: service },
+                { label: 'Уровень', value: level },
+                ...(description ? [{ label: 'Описание', value: description }] : []),
+                ...(extraInfo ? [{ label: 'Дополнительно', value: extraInfo }] : [])
+            ],
+            careerInfo: [
+                { label: 'Служба', value: service },
+                { label: 'Звание', value: status },
+                { label: 'Статус', value: 'Активный' },
+                { label: 'Опыт', value: 'Служба' },
+                { label: 'Профессия', value: profession }
+            ],
+            traits: [
+                { label: 'Дисциплина', value: 'Высокая' },
+                { label: 'Подход', value: 'Профессиональный' },
+                { label: 'Цели', value: 'Карьерный рост' },
+                { label: 'Приоритет', value: 'Служба' }
+            ]
+        };
+        
+        if (addNewHero(heroId, heroData)) {
+            closeAddHeroForm();
+            alert(`Персонаж "${heroName}" успешно добавлен и сохранен!`);
+        } else {
+            alert('Ошибка при добавлении персонажа. Проверьте консоль для деталей.');
+        }
+    });
+}
+
+// Функция закрытия формы
+function closeAddHeroForm() {
+    const modal = document.getElementById('add-hero-modal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+// Функция показа формы удаления персонажа
+function showDeleteHeroForm() {
+    if (!checkAdminRights()) {
+        return;
+    }
+    
+    const heroOptions = Object.entries(heroes)
+        .filter(([id, hero]) => id !== 'fork-chan') // Нельзя удалить главного персонажа
+        .map(([id, hero]) => `<option value="${id}">${hero.name} (${hero.category})</option>`)
+        .join('');
+    
+    if (!heroOptions) {
+        alert('Нет персонажей для удаления!');
+        return;
+    }
+    
+    const formHTML = `
+        <div id="delete-hero-modal" class="modal-overlay">
+            <div class="modal-content">
+                <h3>Удалить персонажа</h3>
+                <form id="delete-hero-form">
+                    <div class="form-group">
+                        <label>Выберите персонажа для удаления:</label>
+                        <select id="hero-to-delete" required>
+                            <option value="">Выберите персонажа...</option>
+                            ${heroOptions}
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Подтверждение:</label>
+                        <input type="text" id="confirm-delete" placeholder="Введите 'УДАЛИТЬ' для подтверждения" required>
+                        <small>Введите слово "УДАЛИТЬ" для подтверждения удаления</small>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-danger">Удалить персонажа</button>
+                        <button type="button" class="btn-secondary" onclick="closeDeleteHeroForm()">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', formHTML);
+    
+    // Обработчик отправки формы
+    document.getElementById('delete-hero-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const heroId = document.getElementById('hero-to-delete').value;
+        const confirmText = document.getElementById('confirm-delete').value;
+        
+        if (confirmText !== 'УДАЛИТЬ') {
+            alert('Введите "УДАЛИТЬ" для подтверждения!');
+            return;
+        }
+        
+        if (heroId === 'fork-chan') {
+            alert('Нельзя удалить главного персонажа!');
+            return;
+        }
+        
+        const heroName = heroes[heroId]?.name || heroId;
+        
+        if (removeHero(heroId)) {
+            closeDeleteHeroForm();
+            alert(`Персонаж "${heroName}" успешно удален!`);
+        } else {
+            alert('Ошибка при удалении персонажа. Проверьте консоль для деталей.');
+        }
+    });
+}
+
+// Функция закрытия формы удаления
+function closeDeleteHeroForm() {
+    const modal = document.getElementById('delete-hero-modal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+// Функция сброса прав администратора
+function resetAdminRights() {
+    isAdmin = false;
+    saveAdminStatus();
+    updateAdminButton();
+    alert('Права администратора сброшены.');
 }
 
 // Плавная прокрутка для навигации
@@ -501,9 +1193,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Загружаем сохраненные данные при инициализации
+    loadSavedData();
+    
+    // Инициализируем счетчик пользователей
+    addUserToCounter();
+    refreshUserCounter();
+    
+    // Обновляем счетчик каждые 30 секунд
+    setInterval(refreshUserCounter, 30000);
+    
+    // Управление кнопкой "Наверх"
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+    
     // Добавляем анимацию загрузки страницы
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
+        updateCurrentHeroIndicator();
+        updateAdminButton(); // Инициализируем кнопку администратора
+    });
+    
+    // Обработчик закрытия страницы для удаления пользователя из счетчика
+    window.addEventListener('beforeunload', function() {
+        removeUserFromCounter();
+        // Сбрасываем права администратора при закрытии страницы
+        isAdmin = false;
     });
 
     // Добавляем интерактивные подсказки для карточек
@@ -524,10 +1245,83 @@ document.addEventListener('DOMContentLoaded', function() {
         hero.addEventListener('click', function() {
             const heroId = this.getAttribute('data-hero');
             if (heroId) {
+                // Останавливаем авторежим при ручном переключении
+                if (isAutoMode) {
+                    stopAutoSwitch();
+                }
                 switchHero(heroId);
             }
         });
     });
+
+    // Добавляем анимацию для карточек при авторежиме
+    function addAutoAnimation() {
+        const cards = document.querySelectorAll('.member-card, .contact-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.classList.add('auto-animate');
+        });
+    }
+
+    // Убираем анимацию авторежима
+    function removeAutoAnimation() {
+        const cards = document.querySelectorAll('.member-card, .contact-card');
+        cards.forEach(card => {
+            card.classList.remove('auto-animate');
+        });
+    }
+
+    // Обновляем функцию авторежима
+    const originalStartAutoSwitch = startAutoSwitch;
+    startAutoSwitch = function() {
+        originalStartAutoSwitch();
+        addAutoAnimation();
+    };
+
+    const originalStopAutoSwitch = stopAutoSwitch;
+    stopAutoSwitch = function() {
+        originalStopAutoSwitch();
+        removeAutoAnimation();
+    };
+
+    // Добавляем индикатор текущего персонажа
+    function updateCurrentHeroIndicator() {
+        const cards = document.querySelectorAll('.clickable-hero');
+        cards.forEach(card => {
+            card.classList.remove('current-hero');
+            const heroId = card.getAttribute('data-hero');
+            if (heroId === currentHero) {
+                card.classList.add('current-hero');
+            }
+        });
+    }
+
+    // Обновляем функцию переключения персонажа
+    const originalSwitchHero = switchHero;
+    switchHero = function(heroId) {
+        originalSwitchHero(heroId);
+        updateCurrentHeroIndicator();
+        
+        // Добавляем эффект переключения
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroSection.classList.add('hero-switch');
+            setTimeout(() => {
+                heroSection.classList.remove('hero-switch');
+            }, 500);
+        }
+        
+        // Добавляем эффект для карточек
+        const cards = document.querySelectorAll('.member-card, .contact-card');
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 200);
+            }, index * 50);
+        });
+    };
 });
 
 // Добавляем CSS для новых элементов
@@ -553,3 +1347,89 @@ style.textContent = `
 `;
 
 document.head.appendChild(style);
+
+// Примеры использования функций для добавления персонажей
+// Раскомментируйте и измените по необходимости:
+
+/*
+// Пример добавления нового члена семьи
+addNewHero('new-uncle', {
+    name: 'Дядя Петр',
+    avatar: 'https://via.placeholder.com/150/000/fff?text=Петр',
+    level: 'Высокий',
+    status: 'Майор',
+    profession: 'Армия',
+    service: 'Армия',
+    category: 'family',
+    relation: 'Дядя',
+    basicInfo: [
+        { label: 'Имя', value: 'Петр' },
+        { label: 'Звание', value: 'Майор' },
+        { label: 'Родство', value: 'Дядя' },
+        { label: 'Служба', value: 'Армия' },
+        { label: 'Семья', value: 'Есть дети' }
+    ],
+    careerInfo: [
+        { label: 'Служба', value: 'Армия' },
+        { label: 'Звание', value: 'Майор' },
+        { label: 'Статус', value: 'Активный' },
+        { label: 'Опыт', value: 'Военная служба' }
+    ],
+    traits: [
+        { label: 'Дисциплина', value: 'Высокая' },
+        { label: 'Подход', value: 'Военный' },
+        { label: 'Цели', value: 'Карьерный рост' },
+        { label: 'Приоритет', value: 'Служба' }
+    ]
+});
+
+// Пример добавления другого персонажа
+addNewHero('new-colleague', {
+    name: 'Сергей',
+    avatar: 'https://via.placeholder.com/150/000/fff?text=Сергей',
+    level: 'Высокий',
+    status: 'Подполковник',
+    profession: 'ФСБ',
+    service: 'ФСБ',
+    category: 'other',
+    relation: 'Коллега',
+    basicInfo: [
+        { label: 'Имя', value: 'Сергей' },
+        { label: 'Звание', value: 'Подполковник' },
+        { label: 'Служба', value: 'ФСБ' },
+        { label: 'Статус', value: 'Активный' },
+        { label: 'Опыт', value: 'Служба в ФСБ' }
+    ],
+    careerInfo: [
+        { label: 'Служба', value: 'ФСБ' },
+        { label: 'Звание', value: 'Подполковник' },
+        { label: 'Статус', value: 'Активный' },
+        { label: 'Опыт', value: 'Служба в ФСБ' }
+    ],
+    traits: [
+        { label: 'Дисциплина', value: 'Высокая' },
+        { label: 'Подход', value: 'Профессиональный' },
+        { label: 'Цели', value: 'Служебный рост' },
+        { label: 'Приоритет', value: 'Служба' }
+    ]
+});
+*/
+
+// Глобальные функции для использования в консоли браузера
+window.addNewHero = addNewHero;
+window.removeHero = removeHero;
+window.getHeroesByCategory = getHeroesByCategory;
+window.switchHero = switchHero;
+window.toggleAutoMode = toggleAutoMode;
+window.showAddHeroForm = showAddHeroForm;
+window.closeAddHeroForm = closeAddHeroForm;
+window.showDeleteHeroForm = showDeleteHeroForm;
+window.closeDeleteHeroForm = closeDeleteHeroForm;
+window.deleteHeroDirectly = deleteHeroDirectly;
+window.resetAdminRights = resetAdminRights;
+window.checkAdminRights = checkAdminRights;
+window.hasAdminRights = hasAdminRights;
+window.loadSavedData = loadSavedData;
+window.saveHeroes = saveHeroes;
+window.scrollToTop = scrollToTop;
+window.refreshUserCounter = refreshUserCounter;

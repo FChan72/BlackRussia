@@ -23,6 +23,9 @@
                 <a href="#career" class="nav-link">Карьера</a>
                 <a href="#daily-life" class="nav-link">Повседневность</a>
                 <a href="#contacts" class="nav-link">Контакты</a>
+                <button id="auto-switch-btn" class="auto-btn" onclick="toggleAutoMode()">Авторежим</button>
+
+                <div id="auto-progress" class="auto-progress"></div>
             </nav>
         </div>
     </header>
@@ -91,65 +94,102 @@
                 <div class="family-tree">
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="vadim">
-                            <h3>Дядя Вадим</h3>
+                            <div class="card-header">
+                                <h3>Дядя Вадим</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('vadim')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Подполковник Армии</p>
                             <span class="relation">Дядя</span>
                         </div>
                     </div>
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="tima">
-                            <h3>Дядя Тима</h3>
+                            <div class="card-header">
+                                <h3>Дядя Тима</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('tima')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Майор Армии</p>
                             <span class="relation">Дядя</span>
                         </div>
                     </div>
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="unknown-uncle">
-                            <h3>Дядя (Неизвестен)</h3>
+                            <div class="card-header">
+                                <h3>Дядя (Неизвестен)</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('unknown-uncle')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Муж тети Ани</p>
                             <span class="relation">Дядя</span>
                         </div>
                     </div>
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="anya">
-                            <h3>Тетя Аня</h3>
+                            <div class="card-header">
+                                <h3>Тетя Аня</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('anya')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Прапорщик ФСБ</p>
                             <span class="relation">Тетя</span>
                         </div>
                     </div>
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="mira">
-                            <h3>Мама Мира</h3>
+                            <div class="card-header">
+                                <h3>Мама Мира</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('mira')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Майор Армии</p>
                             <span class="relation">Мама</span>
                         </div>
                     </div>
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="yarik">
-                            <h3>Папа Ярик</h3>
+                            <div class="card-header">
+                                <h3>Папа Ярик</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('yarik')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Подполковник УМВД</p>
                             <span class="relation">Папа</span>
                         </div>
                     </div>
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="kamilla">
-                            <h3>Крестная Камилла</h3>
+                            <div class="card-header">
+                                <h3>Крестная Камилла</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('kamilla')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Майор Армии</p>
                             <span class="relation">Крестная</span>
                         </div>
                     </div>
                                         <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="ronaldo">
-                            <h3>Блятик Ронольдо</h3>
+                            <div class="card-header">
+                                <h3>Блятик Ронольдо</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('ronaldo')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Капитан Армии</p>
                             <span class="relation">Блятик</span>
                         </div>
                     </div>
                     <div class="family-member">
                         <div class="member-card clickable-hero" data-hero="arseniy">
-                            <h3>Блятик Арсений</h3>
+                            <div class="card-header">
+                                <h3>Блятик Арсений</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('arseniy')" title="Удалить персонажа">🗑️</button>
+                            </div>
                             <p>Подполковник Армии</p>
                             <span class="relation">Блятик</span>
+                        </div>
+                    </div>
+                    <div class="family-member">
+                        <div class="member-card clickable-hero" data-hero="asxab">
+                            <div class="card-header">
+                                <h3>Дед Асхаб</h3>
+                                <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('asxab')" title="Удалить персонажа">🗑️</button>
+                            </div>
+                            <p>Пропавший дед</p>
+                            <span class="relation">Дед</span>
                         </div>
                     </div>
                     </div>
@@ -202,7 +242,10 @@
                 <h2 class="section-title">Другие персонажи</h2>
                 <div class="contacts-grid">
                     <div class="contact-card clickable-hero" data-hero="andrey">
-                        <h3>Андрей</h3>
+                        <div class="card-header">
+                            <h3>Андрей</h3>
+                            <button class="delete-hero-btn-small" onclick="deleteHeroDirectly('andrey')" title="Удалить персонажа">🗑️</button>
+                        </div>
                         <p>Полковник Армии</p>
                         <span class="status bad">Злюка</span>
                     </div>
@@ -211,9 +254,24 @@
         </section>
     </main>
 
+    <!-- Кнопка "Наверх" -->
+    <button id="scroll-to-top" class="scroll-to-top-btn" onclick="scrollToTop()" title="Наверх">
+        ↑
+    </button>
+
+    <!-- Счетчик пользователей -->
+    <div id="user-counter" class="user-counter">
+        <span id="online-users">0</span> пользователей онлайн
+    </div>
+
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Black Russia - <span id="current-hero-footer">Fork_Chan</span>. Все права защищены.</p>
+            <div class="footer-content">
+                <p>&copy; 2024 Black Russia - <span id="current-hero-footer">Fork_Chan</span>. Все права защищены.</p>
+                <div class="footer-buttons">
+                    <button id="add-hero-btn" class="add-hero-btn" onclick="showAddHeroForm()" title="Введите код администратора">🔒 Получить админку</button>
+                </div>
+            </div>
         </div>
     </footer>
 
