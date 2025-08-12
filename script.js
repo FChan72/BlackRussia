@@ -1433,4 +1433,3 @@ window.loadSavedData = loadSavedData;
 window.saveHeroes = saveHeroes;
 window.scrollToTop = scrollToTop;
 window.refreshUserCounter = refreshUserCounter;
-
