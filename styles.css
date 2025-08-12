@@ -391,6 +391,11 @@ body {
     color: white;
 }
 
+.status.blyatik {
+    background: #17a2b8;
+    color: white;
+}
+
 /* Clickable Hero Styles */
 .clickable-hero {
     cursor: pointer;

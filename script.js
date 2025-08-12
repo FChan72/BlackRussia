@@ -30,55 +30,55 @@ const heroes = {
     'vadim': {
         name: 'Дядя Вадим',
         avatar: 'https://via.placeholder.com/150/000/fff?text=Вадим',
-        level: 'Взрослый',
-        status: 'Семейный',
-        profession: 'Не указана',
-        service: 'Нет',
+        level: 'Высокий',
+        status: 'Подполковник',
+        profession: 'Армия',
+        service: 'Армия',
         basicInfo: [
             { label: 'Имя', value: 'Вадим' },
-            { label: 'Статус', value: 'Семейный' },
+            { label: 'Звание', value: 'Подполковник' },
             { label: 'Родство', value: 'Дядя' },
-            { label: 'Дети', value: 'Блятик Рональдо' },
-            { label: 'Характер', value: 'Семейный' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Дети', value: 'Блятик Рональдо' }
         ],
         careerInfo: [
-            { label: 'Работа', value: 'Не указана' },
-            { label: 'Статус', value: 'Работает' },
-            { label: 'Семья', value: 'Есть дети' },
-            { label: 'Опыт', value: 'Семейная жизнь' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Звание', value: 'Подполковник' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Военная служба' }
         ],
         traits: [
-            { label: 'Ответственность', value: 'Высокая' },
-            { label: 'Подход', value: 'Семейный' },
-            { label: 'Цели', value: 'Забота о семье' },
-            { label: 'Приоритет', value: 'Семья' }
+            { label: 'Дисциплина', value: 'Высокая' },
+            { label: 'Подход', value: 'Военный' },
+            { label: 'Цели', value: 'Карьерный рост' },
+            { label: 'Приоритет', value: 'Служба' }
         ]
     },
     'tima': {
         name: 'Дядя Тима',
         avatar: 'https://via.placeholder.com/150/000/fff?text=Тима',
-        level: 'Взрослый',
-        status: 'Семейный',
-        profession: 'Не указана',
-        service: 'Нет',
+        level: 'Высокий',
+        status: 'Майор',
+        profession: 'Армия',
+        service: 'Армия',
         basicInfo: [
             { label: 'Имя', value: 'Тима' },
-            { label: 'Статус', value: 'Семейный' },
+            { label: 'Звание', value: 'Майор' },
             { label: 'Родство', value: 'Дядя' },
-            { label: 'Семья', value: 'Есть' },
-            { label: 'Характер', value: 'Спокойный' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Семья', value: 'Есть сын Арсений' }
         ],
         careerInfo: [
-            { label: 'Работа', value: 'Не указана' },
-            { label: 'Статус', value: 'Работает' },
-            { label: 'Семья', value: 'Есть' },
-            { label: 'Опыт', value: 'Обычная жизнь' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Звание', value: 'Майор' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Военная служба' }
         ],
         traits: [
-            { label: 'Характер', value: 'Спокойный' },
-            { label: 'Подход', value: 'Стабильный' },
-            { label: 'Цели', value: 'Семейное благополучие' },
-            { label: 'Приоритет', value: 'Семья' }
+            { label: 'Дисциплина', value: 'Высокая' },
+            { label: 'Подход', value: 'Военный' },
+            { label: 'Цели', value: 'Карьерный рост' },
+            { label: 'Приоритет', value: 'Служба' }
         ]
     },
     'unknown-uncle': {
@@ -111,55 +111,55 @@ const heroes = {
     'anya': {
         name: 'Тетя Аня',
         avatar: 'https://via.placeholder.com/150/000/fff?text=Аня',
-        level: 'Взрослая',
-        status: 'Семейная',
-        profession: 'Не указана',
-        service: 'Нет',
+        level: 'Высокий',
+        status: 'Прапорщик',
+        profession: 'ФСБ',
+        service: 'ФСБ',
         basicInfo: [
             { label: 'Имя', value: 'Аня' },
-            { label: 'Статус', value: 'Семейная' },
+            { label: 'Звание', value: 'Прапорщик' },
             { label: 'Родство', value: 'Тетя' },
-            { label: 'Семья', value: 'Замужем' },
-            { label: 'Характер', value: 'Эмоциональная' }
+            { label: 'Служба', value: 'ФСБ' },
+            { label: 'Семья', value: 'Замужем' }
         ],
         careerInfo: [
-            { label: 'Работа', value: 'Не указана' },
-            { label: 'Статус', value: 'Работает' },
-            { label: 'Семья', value: 'Замужем' },
-            { label: 'Опыт', value: 'Семейная жизнь' }
+            { label: 'Служба', value: 'ФСБ' },
+            { label: 'Звание', value: 'Прапорщик' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Служба в ФСБ' }
         ],
         traits: [
             { label: 'Характер', value: 'Эмоциональная' },
             { label: 'Подход', value: 'Прямолинейный' },
-            { label: 'Цели', value: 'Семейное благополучие' },
-            { label: 'Приоритет', value: 'Семья' }
+            { label: 'Цели', value: 'Служебный рост' },
+            { label: 'Приоритет', value: 'Служба' }
         ]
     },
     'mira': {
         name: 'Мама Мира',
         avatar: 'https://via.placeholder.com/150/000/fff?text=Мира',
-        level: 'Взрослая',
-        status: 'Семейная',
-        profession: 'Не указана',
-        service: 'Нет',
+        level: 'Высокий',
+        status: 'Майор',
+        profession: 'Армия',
+        service: 'Армия',
         basicInfo: [
             { label: 'Имя', value: 'Мира' },
-            { label: 'Статус', value: 'Семейная' },
+            { label: 'Звание', value: 'Майор' },
             { label: 'Родство', value: 'Мама' },
-            { label: 'Семья', value: 'Есть дети' },
-            { label: 'Характер', value: 'Независимая' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Семья', value: 'Есть дети' }
         ],
         careerInfo: [
-            { label: 'Работа', value: 'Не указана' },
-            { label: 'Статус', value: 'Работает' },
-            { label: 'Семья', value: 'Есть дети' },
-            { label: 'Опыт', value: 'Семейная жизнь' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Звание', value: 'Майор' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Военная служба' }
         ],
         traits: [
-            { label: 'Характер', value: 'Независимая' },
-            { label: 'Подход', value: 'Самостоятельный' },
-            { label: 'Цели', value: 'Личное счастье' },
-            { label: 'Приоритет', value: 'Дети' }
+            { label: 'Дисциплина', value: 'Высокая' },
+            { label: 'Подход', value: 'Военный' },
+            { label: 'Цели', value: 'Карьерный рост' },
+            { label: 'Приоритет', value: 'Служба' }
         ]
     },
     'yarik': {
@@ -192,55 +192,82 @@ const heroes = {
     'kamilla': {
         name: 'Крестная Камилла',
         avatar: 'https://via.placeholder.com/150/000/fff?text=Камилла',
-        level: 'Взрослая',
-        status: 'Крестная',
-        profession: 'Не указана',
-        service: 'Нет',
+        level: 'Высокий',
+        status: 'Майор',
+        profession: 'Армия',
+        service: 'Армия',
         basicInfo: [
             { label: 'Имя', value: 'Камилла' },
-            { label: 'Статус', value: 'Крестная' },
+            { label: 'Звание', value: 'Майор' },
             { label: 'Родство', value: 'Крестная мама' },
-            { label: 'Семья', value: 'Есть' },
-            { label: 'Характер', value: 'Заботливая' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Семья', value: 'Есть' }
         ],
         careerInfo: [
-            { label: 'Работа', value: 'Не указана' },
-            { label: 'Статус', value: 'Работает' },
-            { label: 'Семья', value: 'Есть' },
-            { label: 'Опыт', value: 'Семейная жизнь' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Звание', value: 'Майор' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Военная служба' }
         ],
         traits: [
-            { label: 'Характер', value: 'Заботливая' },
-            { label: 'Подход', value: 'Духовный' },
-            { label: 'Цели', value: 'Духовное развитие' },
-            { label: 'Приоритет', value: 'Вера' }
+            { label: 'Дисциплина', value: 'Высокая' },
+            { label: 'Подход', value: 'Военный' },
+            { label: 'Цели', value: 'Служебный рост' },
+            { label: 'Приоритет', value: 'Служба' }
         ]
     },
     'ronaldo': {
         name: 'Блятик Рональдо',
         avatar: 'https://via.placeholder.com/150/000/fff?text=Рональдо',
-        level: 'Молодой',
-        status: 'Сын',
-        profession: 'Не указана',
-        service: 'Нет',
+        level: 'Высокий',
+        status: 'Капитан',
+        profession: 'Армия',
+        service: 'Армия',
         basicInfo: [
             { label: 'Имя', value: 'Рональдо' },
-            { label: 'Статус', value: 'Сын' },
+            { label: 'Звание', value: 'Капитан' },
             { label: 'Родство', value: 'Блятик' },
-            { label: 'Отец', value: 'Дядя Вадим' },
-            { label: 'Характер', value: 'Футбольный фанат' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Отец', value: 'Дядя Вадим' }
         ],
         careerInfo: [
-            { label: 'Работа', value: 'Не указана' },
-            { label: 'Статус', value: 'Учится/работает' },
-            { label: 'Семья', value: 'Есть' },
-            { label: 'Опыт', value: 'Молодой' }
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Звание', value: 'Капитан' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Военная служба' }
         ],
         traits: [
-            { label: 'Характер', value: 'Активный' },
-            { label: 'Подход', value: 'Спортивный' },
-            { label: 'Цели', value: 'Развитие' },
-            { label: 'Приоритет', value: 'Спорт' }
+            { label: 'Дисциплина', value: 'Высокая' },
+            { label: 'Подход', value: 'Военный' },
+            { label: 'Цели', value: 'Карьерный рост' },
+            { label: 'Приоритет', value: 'Служба' }
+        ]
+    },
+    'arseniy': {
+        name: 'Блятик Арсений',
+        avatar: 'https://via.placeholder.com/150/000/fff?text=Арсений',
+        level: 'Высокий',
+        status: 'Подполковник',
+        profession: 'Армия',
+        service: 'Армия',
+        basicInfo: [
+            { label: 'Имя', value: 'Арсений' },
+            { label: 'Звание', value: 'Подполковник' },
+            { label: 'Родство', value: 'Блятик' },
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Отец', value: 'Дядя Тима' }
+        ],
+        careerInfo: [
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Звание', value: 'Подполковник' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Военная служба' }
+        ],
+        traits: [
+            { label: 'Дисциплина', value: 'Высокая' },
+            { label: 'Подход', value: 'Военный' },
+            { label: 'Цели', value: 'Карьерный рост' },
+            { label: 'Приоритет', value: 'Служба' }
         ]
     },
     'andrey': {
@@ -268,33 +295,6 @@ const heroes = {
             { label: 'Подход', value: 'Военный' },
             { label: 'Дисциплина', value: 'Высокая' },
             { label: 'Приоритет', value: 'Служба' }
-        ]
-    },
-    'arseniy': {
-        name: 'Арсений',
-        avatar: 'https://via.placeholder.com/150/000/fff?text=Арсений',
-        level: 'Обычный',
-        status: 'Гражданский',
-        profession: 'Обычный человек',
-        service: 'Нет',
-        basicInfo: [
-            { label: 'Имя', value: 'Арсений' },
-            { label: 'Статус', value: 'Гражданский' },
-            { label: 'Профессия', value: 'Обычный человек' },
-            { label: 'Уровень', value: 'Обычный' },
-            { label: 'Характер', value: 'Нейтральный' }
-        ],
-        careerInfo: [
-            { label: 'Работа', value: 'Обычная' },
-            { label: 'Статус', value: 'Гражданский' },
-            { label: 'Профессия', value: 'Не указана' },
-            { label: 'Опыт', value: 'Обычная жизнь' }
-        ],
-        traits: [
-            { label: 'Характер', value: 'Спокойный' },
-            { label: 'Подход', value: 'Обычный' },
-            { label: 'Цели', value: 'Простые' },
-            { label: 'Приоритет', value: 'Семья' }
         ]
     }
 };
