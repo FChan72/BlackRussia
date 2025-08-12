@@ -1,4 +1,3 @@
-// Данные персонажей
 const heroes = {
     'fork-chan': {
         name: 'Fork_Chan',
