@@ -32,17 +32,19 @@
             <div class="container">
                 <div class="hero-content">
                     <h2 class="hero-title">Добро пожаловать в мир Black Russia</h2>
-                    <p class="hero-subtitle">Познакомьтесь с Fork_Chan и его семьей</p>
+                    <p class="hero-subtitle">Познакомьтесь с <span id="current-hero-name">Fork_Chan</span> и его историей</p>
                     <div class="player-info">
                         <div class="player-avatar">
-                            <img src="https://via.placeholder.com/150/000/fff?text=Fork_Chan" alt="Fork_Chan" class="avatar">
+                            <img id="current-hero-avatar" src="https://via.placeholder.com/150/000/fff?text=Fork_Chan" alt="Fork_Chan" class="avatar">
                         </div>
                         <div class="player-details">
-                            <h3>Fork_Chan</h3>
-                            <p><strong>Уровень:</strong> 12</p>
-                            <p><strong>Статус:</strong> Бомж</p>
-                            <p><strong>Профессия:</strong> Дальнобойщик</p>
-                            <p><strong>Служба:</strong> ФСБ (старшина)</p>
+                            <h3 id="current-hero-title">Fork_Chan</h3>
+                            <div id="current-hero-stats">
+                                <p><strong>Уровень:</strong> 12</p>
+                                <p><strong>Статус:</strong> Бомж</p>
+                                <p><strong>Профессия:</strong> Дальнобойщик</p>
+                                <p><strong>Служба:</strong> ФСБ (старшина)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,7 +57,7 @@
                 <div class="profile-grid">
                     <div class="profile-card">
                         <h3>Основная информация</h3>
-                        <ul>
+                        <ul id="current-hero-basic-info">
                             <li><strong>Никнейм:</strong> Fork_Chan</li>
                             <li><strong>Уровень:</strong> 12</li>
                             <li><strong>Статус:</strong> Бомж</li>
@@ -65,7 +67,7 @@
                     </div>
                     <div class="profile-card">
                         <h3>Карьера</h3>
-                        <ul>
+                        <ul id="current-hero-career-info">
                             <li><strong>Текущая работа:</strong> Дальнобойщик</li>
                             <li><strong>Служба в ФСБ:</strong> Старшина</li>
                             <li><strong>Прогресс:</strong> Почти дослужился</li>
@@ -74,7 +76,7 @@
                     </div>
                     <div class="profile-card">
                         <h3>Характеристики</h3>
-                        <ul>
+                        <ul id="current-hero-traits">
                             <li><strong>Настойчивость:</strong> Высокая</li>
                             <li><strong>Цель:</strong> Дослужиться в ФСБ</li>
                             <li><strong>Подход:</strong> Постепенный рост</li>
@@ -87,61 +89,61 @@
 
         <section id="family" class="family section">
             <div class="container">
-                <h2 class="section-title">Семья Fork_Chan</h2>
+                <h2 class="section-title">Семья <span id="current-hero-family-name">Fork_Chan</span></h2>
                 <div class="family-tree">
                     <div class="family-member">
-                        <div class="member-card">
+                        <div class="member-card clickable-hero" data-hero="vadim">
                             <h3>Дядя Вадим</h3>
                             <p>Папа блятика Рональдо</p>
                             <span class="relation">Дядя</span>
                         </div>
                     </div>
                     <div class="family-member">
-                        <div class="member-card">
+                        <div class="member-card clickable-hero" data-hero="tima">
                             <h3>Дядя Тима</h3>
                             <p>Второй дядя</p>
                             <span class="relation">Дядя</span>
                         </div>
                     </div>
                     <div class="family-member">
-                        <div class="member-card">
+                        <div class="member-card clickable-hero" data-hero="unknown-uncle">
                             <h3>Дядя (Неизвестен)</h3>
                             <p>Муж тети Ани</p>
                             <span class="relation">Дядя</span>
                         </div>
                     </div>
                     <div class="family-member">
-                        <div class="member-card">
+                        <div class="member-card clickable-hero" data-hero="anya">
                             <h3>Тетя Аня</h3>
                             <p>Любит орать и агрится</p>
                             <span class="relation">Тетя</span>
                         </div>
                     </div>
                     <div class="family-member">
-                        <div class="member-card">
+                        <div class="member-card clickable-hero" data-hero="mira">
                             <h3>Мама Мира</h3>
                             <p>Не хочет жениться на Ярике</p>
                             <span class="relation">Мама</span>
                         </div>
                     </div>
                     <div class="family-member">
-                        <div class="member-card">
+                        <div class="member-card clickable-hero" data-hero="yarik">
                             <h3>Папа Ярик</h3>
                             <p>Подполковник УМВД</p>
                             <span class="relation">Папа</span>
                         </div>
                     </div>
                     <div class="family-member">
-                        <div class="member-card">
+                        <div class="member-card clickable-hero" data-hero="kamilla">
                             <h3>Крестная Камилла</h3>
                             <p>Крестная мама</p>
                             <span class="relation">Крестная</span>
                         </div>
                     </div>
                     <div class="family-member">
-                        <div class="member-card">
-                            <h3>Блятик Рональдо</h3>
-                            <p>Сын дяди Вадима, любит Ронольдо</p>
+                        <div class="member-card clickable-hero" data-hero="ronaldo">
+                            <h3>Блятик Ронольдо</h3>
+                            <p>Сын дяди Вадима</p>
                             <span class="relation">Блятик</span>
                         </div>
                     </div>
@@ -193,12 +195,12 @@
             <div class="container">
                 <h2 class="section-title">Другие персонажи</h2>
                 <div class="contacts-grid">
-                    <div class="contact-card">
+                    <div class="contact-card clickable-hero" data-hero="andrey">
                         <h3>Андрей</h3>
                         <p>Полковник Армии</p>
                         <span class="status bad">Злюка</span>
                     </div>
-                    <div class="contact-card">
+                    <div class="contact-card clickable-hero" data-hero="arseniy">
                         <h3>Арсений</h3>
                         <p>Просто человек</p>
                         <span class="status neutral">Нейтральный</span>
@@ -210,7 +212,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Black Russia - Fork_Chan. Все права защищены.</p>
+            <p>&copy; 2024 Black Russia - <span id="current-hero-footer">Fork_Chan</span>. Все права защищены.</p>
         </div>
     </footer>
 
