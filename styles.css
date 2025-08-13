@@ -527,6 +527,11 @@ body {
     color: white;
 }
 
+.status.kind {
+    background: #15b600;
+    color: white;
+}
+
 .status.neutral {
     background: #6c757d;
     color: white;
@@ -673,6 +678,11 @@ body {
     border-color: #dc3545;
 }
 
+.contact-card.clickable-hero[data-hero="savely"]:hover {
+    box-shadow: 0 25px 50px rgba(220, 53, 69, 0.3);
+    border-color: #dc3545;
+}
+
 .contact-card.clickable-hero[data-hero="arseniy"]:hover {
     box-shadow: 0 25px 50px rgba(108, 117, 125, 0.3);
     border-color: #6c757d;
@@ -680,7 +690,7 @@ body {
 
 /* Анимации для авторежима */
 .auto-animate {
-    animation: autoPulse 2s ease-in-out infinite;
+    animation: autoPulse 5s ease-in-out infinite;
 }
 
 @keyframes autoPulse {
@@ -724,7 +734,7 @@ body {
 
 /* Эффекты авторежима */
 .auto-mode {
-    animation: autoModeBackground 10s ease-in-out infinite;
+    animation: autoModeBackground 3s ease-in-out infinite;
 }
 
 @keyframes autoModeBackground {
@@ -964,14 +974,19 @@ body {
     color: white;
     border: none;
     border-radius: 50%;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 2.5rem;          /* увеличенный размер */
+    font-weight: 900; /* максимальная жирность */
+    font-family: 'Arial Black', Arial, sans-serif;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    display: flex;              /* Центрирование содержимого */
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* более крупная тень */
 }
 
 .scroll-to-top-btn:hover {
@@ -983,28 +998,6 @@ body {
 .scroll-to-top-btn.visible {
     opacity: 1;
     visibility: visible;
-}
-
-/* Счетчик пользователей */
-.user-counter {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(30, 60, 114, 0.9);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.user-counter #online-users {
-    color: #ff6b35;
-    font-weight: bold;
 }
 
 /* Кнопка удаления персонажа */
@@ -1082,11 +1075,13 @@ body {
     }
     
     .scroll-to-top-btn {
+        /* убираем центрирование */
+        right: 30px;        /* фиксируем справа снизу */
         bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
+        transform: none;    /* убираем сдвиг по горизонтали */
+        width: 50px;
+        height: 50px;
+        font-size: 2.5rem;
     }
     
     .user-counter {

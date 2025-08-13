@@ -346,7 +346,36 @@ const heroes = {
             { label: 'Дисциплина', value: 'Высокая' },
             { label: 'Приоритет', value: 'Служба' }
         ]
-    }
+    },
+    'savely': {
+        name: 'Савели',
+        avatar: 'https://via.placeholder.com/150/000/fff?text=Савели',
+        level: 'Высокий',
+        status: 'Майор',
+        profession: 'Военный',
+        service: 'Армия',
+        category: 'other', // Другие персонажи
+        relation: 'Друг',
+        basicInfo: [
+            { label: 'Имя', value: 'Савели' },
+            { label: 'Звание', value: 'Майор' },
+            { label: 'Статус', value: 'Военный' },
+            { label: 'Профессия', value: 'Армия' },
+            { label: 'Характер', value: 'Добрый' }
+        ],
+        careerInfo: [
+            { label: 'Служба', value: 'Армия' },
+            { label: 'Звание', value: 'Майор' },
+            { label: 'Статус', value: 'Активный' },
+            { label: 'Опыт', value: 'Военная служба' }
+        ],
+        traits: [
+            { label: 'Характер', value: 'Добрый' },
+            { label: 'Подход', value: 'Военный' },
+            { label: 'Дисциплина', value: 'Средняя' },
+            { label: 'Приоритет', value: 'Служба' }
+        ]
+    },
 };
 
 // Текущий активный персонаж
@@ -672,10 +701,6 @@ const ADMIN_CODE = '123'; // Код для получения прав адми�
 const STORAGE_KEY = 'blackrussia_heroes';
 const ADMIN_STORAGE_KEY = 'blackrussia_admin';
 const USER_COUNTER_KEY = 'blackrussia_online_users';
-
-// Система счетчика пользователей
-let onlineUsers = 0;
-let userSessionId = null;
 
 // Загрузка данных при инициализации
 function loadSavedData() {
