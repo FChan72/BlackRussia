@@ -1433,3 +1433,55 @@ window.loadSavedData = loadSavedData;
 window.saveHeroes = saveHeroes;
 window.scrollToTop = scrollToTop;
 window.refreshUserCounter = refreshUserCounter;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+  const navLinks = document.querySelectorAll('.nav-link');
+  let isOpen = false;
+
+  function openMenu() {
+    nav.classList.add('active');
+    // Сбрасываем inline стили закрытого состояния и ставим открытые
+    nav.style.opacity = '1';
+    nav.style.padding = '1rem 20px';
+    nav.style.pointerEvents = 'auto';
+    isOpen = true;
+  }
+
+  function closeMenu() {
+    // Начинаем анимацию закрытия (opacity и padding плавно уменьшаем)
+    nav.style.opacity = '0';
+    nav.style.padding = '0 20px';
+    nav.style.pointerEvents = 'none';
+    isOpen = false;
+  }
+
+  navToggle.addEventListener('click', () => {
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isOpen) {
+        closeMenu();
+      }
+    });
+  });
+
+  nav.addEventListener('transitionend', (e) => {
+    // Следим за окончанием анимации opacity при закрытии
+    if (e.propertyName === 'opacity' && !isOpen) {
+      nav.classList.remove('active');
+      // Убираем все inline стили, чтобы меню сбросилось в исходное состояние
+      nav.style.opacity = '';
+      nav.style.padding = '';
+      nav.style.pointerEvents = '';
+    }
+  });
+});
+
