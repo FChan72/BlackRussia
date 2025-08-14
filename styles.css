@@ -488,6 +488,142 @@ body {
     position: relative;
 }
 
+.podskazki.section {
+  background: #f9f9f9; /* светлый фон */
+  padding: 2rem 1rem;
+  color: #222; /* очень тёмно-серый текст */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.podskazki .container {
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.podskazki .section-title {
+  color: #003366; /* насыщенный тёмно-синий */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
+.podskazki-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 колонки */
+  gap: 20px 40px;
+  position: relative;
+}
+
+/* Вертикальная палочка посередине */
+.podskazki-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, #004080 0%, #007bff 100%); /* градиент синий */
+  transform: translateX(-1px);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+/* Карточки */
+.podskazka-card {
+  background: #fff; /* белый фон */
+  padding: 1.2rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* мягкая тень */
+  position: relative;
+  color: #222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  overflow-y: auto;
+  max-height: 480px;
+}
+
+.podskazka-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.podskazka-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.podskazka-header h3 {
+  color: #003366;
+  font-size: 1.6rem;
+  margin: 0;
+  user-select: none;
+}
+
+.podskazka-delete-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #004080;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.podskazka-delete-btn:hover {
+  color: #007bff;
+}
+
+.podskazka-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+.podskazka-info ul li {
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid #e0e0e0; /* тонкая разделительная линия */
+  padding-bottom: 0.4rem;
+}
+
+.podskazka-info ul li:last-child {
+  border-bottom: none;
+}
+
+.podskazka-info strong {
+  color: #004080;
+}
+
+.podskazka-info {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+@media (max-width: 700px) {
+  .podskazki-grid {
+    grid-template-columns: 1fr;
+  }
+  .podskazki-grid::before {
+    display: none;
+  }
+  .podskazka-card {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+
 .contact-card .card-header h3 {
     text-align: center;
     margin: 0 auto;
@@ -1139,6 +1275,20 @@ body {
 }
 
 @media (max-width: 480px) {
+  .podskazki-grid {
+    grid-template-columns: 1fr; /* одна колонка */
+  }
+  .podskazki-grid > .podskazka-card:not(:last-child) {
+    border-bottom: 1.5px solid #ff6b35;
+  }
+  .podskazki-grid > .podskazka-card:last-child {
+    border-bottom: none;
+  }
+
+  /* вертикальная палочка скрывается */
+  .podskazki-grid::before {
+    display: none;
+  }
     .hero-title {
         font-size: 2rem;
     }
