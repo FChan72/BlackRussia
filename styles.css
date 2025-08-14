@@ -488,140 +488,93 @@ body {
     position: relative;
 }
 
-.podskazki.section {
-  background: #f9f9f9; /* светлый фон */
-  padding: 2rem 1rem;
-  color: #222; /* очень тёмно-серый текст */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 .podskazki .container {
-  max-width: 960px;
+  max-width: 1200px; /* Чтобы хватило места для 3 колонок */
   margin: 0 auto;
   box-sizing: border-box;
 }
 
-.podskazki .section-title {
-  color: #003366; /* насыщенный тёмно-синий */
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-  margin-bottom: 2rem;
-  user-select: none;
-}
-
 .podskazki-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 колонки */
-  gap: 20px 40px;
+  grid-template-columns: repeat(3, 1fr); /* Три равные колонки */
   position: relative;
+  gap: 30px 50px; /* вертикальный и горизонтальный отступы */
 }
 
-/* Вертикальная палочка посередине */
-.podskazki-grid::before {
+/* Две вертикальные палочки между колонками */
+.podskazki-grid::before,
+.podskazki-grid::after {
   content: '';
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: linear-gradient(180deg, #004080 0%, #007bff 100%); /* градиент синий */
-  transform: translateX(-1px);
   border-radius: 1px;
   pointer-events: none;
+  width: 3px;  /* толще */
+  background: linear-gradient(180deg, #0055aa 0%, #3399ff 100%);
+  opacity: 0.6; /* чуть светлее */
 }
 
-/* Карточки */
+.podskazki-grid::before {
+  left: calc(33.33%); /* между 1-й и 2-й колонкой */
+  transform: translateX(-1px);
+}
+
+.podskazki-grid::after {
+  left: calc(66.66%); /* между 2-й и 3-й колонкой */
+  transform: translateX(-1px);
+}
+
 .podskazka-card {
-  background: #fff; /* белый фон */
-  padding: 1.2rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* мягкая тень */
-  position: relative;
-  color: #222;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
-  overflow-y: auto;
-  max-height: 480px;
-}
-
-.podskazka-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-.podskazka-header {
-  position: relative;
-  text-align: center;
-  margin-bottom: 1rem;
+  padding: 1.5rem 1.5rem;     /* больше внутренних отступов для воздуха */
+  max-height: 450px;          /* чуть понизить максимальную высоту */
+  overflow-y: auto;           /* скролл при переполнении */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); /* более мягкая тень */
+  font-size: 0.95rem;         /* комфортный размер шрифта */
+  line-height: 1.5;           /* увеличение межстрочного */
 }
 
 .podskazka-header h3 {
-  color: #003366;
-  font-size: 1.6rem;
-  margin: 0;
-  user-select: none;
-}
-
-.podskazka-delete-btn {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  color: #004080;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.podskazka-delete-btn:hover {
-  color: #007bff;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00264d;
 }
 
 .podskazka-info ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem 0;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #333;
+  margin-bottom: 1.2rem;  /* увеличить отступ между списками */
 }
 
-.podskazka-info ul li {
-  margin-bottom: 0.3rem;
-  border-bottom: 1px solid #e0e0e0; /* тонкая разделительная линия */
-  padding-bottom: 0.4rem;
-}
-
-.podskazka-info ul li:last-child {
-  border-bottom: none;
-}
-
-.podskazka-info strong {
-  color: #004080;
-}
-
-.podskazka-info {
-  max-height: 400px;
-  overflow-y: auto;
-  padding-right: 6px;
+/* Адаптив */
+@media (max-width: 1024px) {
+  .podskazki .container {
+    max-width: 900px;
+  }
+  .podskazki-grid {
+    grid-template-columns: 1fr 1fr; /* две колонки */
+  }
+  .podskazki-grid::after {
+    display: none; /* скрываем второй разделитель */
+  }
+  .podskazki-grid::before {
+    left: 50%;
+  }
 }
 
 @media (max-width: 700px) {
-  .podskazki-grid {
-    grid-template-columns: 1fr;
+  .podskazki .container {
+    max-width: 100%;
+    padding: 0 12px;
   }
-  .podskazki-grid::before {
+  .podskazki-grid {
+    grid-template-columns: 1fr; /* одна колонка */
+  }
+  .podskazki-grid::before,
+  .podskazki-grid::after {
     display: none;
   }
-  .podskazka-card {
-    max-height: none;
-    overflow-y: visible;
-  }
 }
+
 
 .contact-card .card-header h3 {
     text-align: center;
